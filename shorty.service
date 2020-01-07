@@ -1,0 +1,14 @@
+[Unit]
+Description=Service for managing redirected URLs
+After=nginx.service
+After=redis.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/shorty
+Restart=always
+
+ExecStart=/usr/bin/node /home/shorty/app.js
+
+[Install]
+WantedBy=multi-user.target 
